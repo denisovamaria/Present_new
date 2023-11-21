@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="410.0" prefWidth="399.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.present_new.HelloController">
+   <children>
+      <ComboBox fx:id="comboBox" layoutX="201.0" layoutY="36.0" onAction="#handleComboBoxSelection" prefHeight="26.0" prefWidth="170.0" />
+      <Label fx:id="label" layoutX="38.0" layoutY="41.0" prefHeight="17.0" prefWidth="102.0" text="manufacturer" />
+   </children>
+</AnchorPane>
