@@ -12,6 +12,8 @@ import java.util.Scanner;
 
 public class HelloController {
 
+    public Label label1;
+    public Label label;
     @FXML
     private ComboBox<String> comboBox;
     @FXML
@@ -79,7 +81,10 @@ public class HelloController {
 
     @FXML
     private void card() {
-        card = "Yes";
+        if (!card.equals("Yes")) {
+            card = "Yes";
+        } else
+            card = "No";
     }
 
     @FXML
@@ -89,10 +94,12 @@ public class HelloController {
         for (int i = 0; i < man.n; i++) {
             if (man.present.get(i).equals(selectedPresent)) {
                 price = man.price.get(i);
-                if (card.equals("Yes"))
+                if (card.equals("Yes")) {
                     price *= 0.9;
-                if (delivery.equals("Yes"))
+                }
+                if (delivery.equals("Yes")) {
                     price += 100;
+                }
             }
         }
         label2.setText("The final price: " + price);
@@ -100,6 +107,9 @@ public class HelloController {
 
     @FXML
     private void delivery() {
-        delivery = "Yes";
+        if (!delivery.equals("Yes")) {
+            delivery = "Yes";
+        } else
+            delivery = "No";
     }
 }
