@@ -1,3 +1,16 @@
-samsung
-apple
-lg
+Samsung
+3
+Galaxy Note 20 Ultra
+1200
+Galaxy Watch 4
+250
+Galaxy Buds Pro
+200
+Apple
+3
+iPad Pro
+800
+AirPods Pro
+250
+Apple Watch Series 6
+400

@@ -4,11 +4,11 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Scanner;
 import java.util.List;
-import java.io.File;
+import java.util.Scanner;
 
 public class HelloController {
 
@@ -18,33 +18,58 @@ public class HelloController {
     private ComboBox<String> comboBox1;
     @FXML
     private Label label;
-    private List<String> list = new ArrayList<>();
-
+    @FXML
+    private Label label1;
+    private List<Present> list = new ArrayList<>();
+    Integer m = 0;
 
     @FXML
     private void initialize() {
         updateData();
-        for (int i = 0; i < list.size(); i++) {
-            comboBox.getItems().addAll(list.get(i));
-        }
-        comboBox.setValue("Choose the manufacturer");
+        comboData();
     }
 
     private void updateData() {
-        Scanner in = null;
-        try {
-            in = new Scanner(new File("input.txt"));
+        try (Scanner in = new Scanner(new File("input.txt"))) {
+            while (in.hasNextLine()) {
+                Present present = new Present();
+                present.manufacturer = in.nextLine();
+                present.n = in.nextInt();
+                in.nextLine();
+                for (int i = 0; i < present.n; i++) {
+                    present.present.add(in.nextLine());
+                    present.price.add(Integer.parseInt(in.nextLine()));
+                }
+                list.add(present);
+                m++;
+            }
         } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
+            System.err.println("No such files: " + e.getMessage());
         }
-        while (in.hasNextLine()) {
-            list.add(in.nextLine());
+    }
+
+    private void comboData(){
+        for (Present s : list) {
+            comboBox.getItems().add(s.manufacturer);
+        }
+    }
+
+    private void comboData1(){
+        comboBox1.getItems().clear();
+        String selectedManufacturer = comboBox.getValue();
+        for (int i = 0; i < m; i++) {
+            if (selectedManufacturer.equals(list.get(i).manufacturer)) {
+                for (int j = 0; j < list.get(i).n; j++) {
+                    comboBox1.getItems().add(list.get(i).present.get(j));
+                }
+            }
         }
     }
 
     @FXML
-    private void handleComboBoxSelection() {
-        String selectedManufacturer = comboBox.getValue();
-        label.setText(selectedManufacturer);
+    private void selPres() {
+        comboData1();
+        comboBox1.setValue("Choose the present");
     }
+
 }
