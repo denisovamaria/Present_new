@@ -23,9 +23,9 @@ public class HelloController {
 
     Present man = new Present();
 
-    Double price = (double) 0;
-
     String card = "No";
+
+    String delivery = "No";
 
     @FXML
     private void initialize() {
@@ -52,13 +52,13 @@ public class HelloController {
         }
     }
 
-    private void comboData(){
+    private void comboData() {
         for (Present s : list) {
             comboBox.getItems().add(s.manufacturer);
         }
     }
 
-    private void comboData1(){
+    private void comboData1() {
         comboBox1.getItems().clear();
         String selectedManufacturer = comboBox.getValue();
         for (int i = 0; i < numberOfManufacturer; i++) {
@@ -78,26 +78,28 @@ public class HelloController {
     }
 
     @FXML
-    private void card(){
+    private void card() {
         card = "Yes";
     }
 
     @FXML
-    private void calcPrice(){
+    private void calcPrice() {
         String selectedPresent = comboBox1.getValue();
-        for(int i = 0; i < man.n; i++)
-        {
-            if(man.present.get(i).equals(selectedPresent))
-            {
-                if(card.equals("Yes"))
-                    price = man.price.get(i) * 0.9;
-                else
-                    price = man.price.get(i);
+        Double price = (double) 0;
+        for (int i = 0; i < man.n; i++) {
+            if (man.present.get(i).equals(selectedPresent)) {
+                price = man.price.get(i);
+                if (card.equals("Yes"))
+                    price *= 0.9;
+                if (delivery.equals("Yes"))
+                    price += 100;
             }
         }
         label2.setText("The final price: " + price);
     }
 
-
-
+    @FXML
+    private void delivery() {
+        delivery = "Yes";
+    }
 }

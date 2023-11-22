@@ -5,13 +5,15 @@
 
 <AnchorPane prefHeight="410.0" prefWidth="399.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.present_new.HelloController">
    <children>
-      <ComboBox fx:id="comboBox" layoutX="201.0" layoutY="46.0" onAction="#selPres" prefHeight="26.0" prefWidth="170.0" promptText="Choose the manufacturer" />
-      <Label fx:id="label" alignment="TOP_LEFT" layoutX="21.0" layoutY="51.0" prefHeight="17.0" prefWidth="102.0" text="Manufacturer:" />
-      <ComboBox fx:id="comboBox1" layoutX="201.0" layoutY="115.0" prefHeight="26.0" prefWidth="170.0" />
-      <Label fx:id="label1" alignment="TOP_LEFT" layoutX="21.0" layoutY="120.0" prefHeight="17.0" prefWidth="102.0" text="Present" />
-      <Label alignment="TOP_LEFT" layoutX="21.0" layoutY="200.0" prefHeight="17.0" prefWidth="150.0" text="Do you have a loyalty card?" />
-      <CheckBox layoutX="277.0" layoutY="200.0" mnemonicParsing="false" onAction="#card" />
+      <ComboBox fx:id="comboBox" layoutX="201.0" layoutY="50.0" onAction="#selPres" prefHeight="26.0" prefWidth="170.0" promptText="Choose the manufacturer" />
+      <Label fx:id="label" alignment="TOP_LEFT" layoutX="21.0" layoutY="50.0" prefHeight="17.0" prefWidth="102.0" text="Manufacturer:" AnchorPane.leftAnchor="21.0" />
+      <ComboBox fx:id="comboBox1" layoutX="201.0" layoutY="120.0" prefHeight="26.0" prefWidth="170.0" />
+      <Label fx:id="label1" alignment="TOP_LEFT" layoutX="21.0" layoutY="120.0" prefHeight="17.0" prefWidth="102.0" text="Present" AnchorPane.leftAnchor="21.0" />
+      <Label alignment="TOP_LEFT" layoutX="21.0" layoutY="190.0" prefHeight="17.0" prefWidth="150.0" text="Do you have a loyalty card?" AnchorPane.leftAnchor="21.0" />
+      <CheckBox layoutX="277.0" layoutY="190.0" mnemonicParsing="false" onAction="#card" />
       <Label fx:id="label2" layoutX="21.0" layoutY="354.0" />
-      <Button layoutX="14.0" layoutY="314.0" mnemonicParsing="false" onAction="#calcPrice" prefHeight="26.0" prefWidth="110.0" text="Calculate price" />
+      <Button layoutX="17.0" layoutY="316.0" mnemonicParsing="false" onAction="#calcPrice" prefHeight="26.0" prefWidth="110.0" text="Calculate price" AnchorPane.leftAnchor="21.0" />
+      <Label layoutX="21.0" layoutY="260.0" text="Do you need delivery?" AnchorPane.leftAnchor="21.0" />
+      <CheckBox layoutX="277.0" layoutY="260.0" mnemonicParsing="false" onAction="#delivery" />
    </children>
 </AnchorPane>
