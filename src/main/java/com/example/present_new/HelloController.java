@@ -90,20 +90,26 @@ public class HelloController {
     @FXML
     private void calcPrice() {
         String selectedPresent = comboBox1.getValue();
-        Double price = (double) 0;
+        if (selectedPresent == null) {
+            System.out.println("Please choose a present."); // или используйте другую логику для обработки null
+            return;
+        }
+
+        Double price = 0.0;
         for (int i = 0; i < man.n; i++) {
             if (man.present.get(i).equals(selectedPresent)) {
                 price = man.price.get(i);
-                if (card.equals("Yes")) {
+                if ("Yes".equals(card)) {
                     price *= 0.9;
                 }
-                if (delivery.equals("Yes")) {
+                if ("Yes".equals(delivery)) {
                     price += 100;
                 }
             }
         }
         label2.setText("The final price: " + price);
     }
+
 
     @FXML
     private void delivery() {
