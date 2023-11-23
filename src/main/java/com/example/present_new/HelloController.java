@@ -91,7 +91,7 @@ public class HelloController {
     private void calcPrice() {
         String selectedPresent = comboBox1.getValue();
         if (selectedPresent == null) {
-            System.out.println("Please choose a present."); // или используйте другую логику для обработки null
+            System.out.println("Please choose a present.");
             return;
         }
 
